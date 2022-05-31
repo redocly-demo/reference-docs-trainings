@@ -99,7 +99,7 @@ paths:
             type: integer
           required: true
           description: Provide a user ID to get information about.
-          default: 11713937
+          example: 11713937
       responses:
         '200':
           description: OK
@@ -123,14 +123,6 @@ components:
       type: apiKey
       name: PRIVATE-TOKEN
       in: header
-      flows:
-        implicit:
-          authorizationUrl: 'https://gitlab.com/oauth/authorize'
-          scopes:
-            'api': Grants complete read/write access to the API, including all groups and projects, the container registry, and the package registry.
-            'read_api': Grants read access to the API, including all groups and projects, the container registry, and the package registry.
-            'read_repository': Grants read-only access to repositories on private projects using Git-over-HTTP or the Repository Files API.
-            'read_registry': Grants read-only access to container registry images on private projects.
 
     OAuth2Implicit:
       description: OAuth2 Implicit description
