@@ -92,6 +92,36 @@ paths:
                       type: string
       security:
         - AccessToken: ['read_user']
+  /users?active=true:
+    get:
+      summary: Basic auth bearer token
+      description: Personal access tokens `glpat-ZWGtLo_zzfp2xkZkpxyg`
+      operationId: basicAuthBearer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                maxItems: 10
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    username:
+                      type: string
+                    name:
+                      type: string
+                    state:
+                      type: string
+                    avatar_url:
+                      type: string
+                    web_url:
+                      type: string
+      security:
+        - basicAuthBearer: []
 
 components:
   securitySchemes:
@@ -183,6 +213,7 @@ components:
       type: http
       scheme: basic
 
-    OpenIdConnect:
-      type: openIdConnect
-      openIdConnectUrl: https://gitlab.com/.well-known/openid-configuration
+    basicAuthBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
