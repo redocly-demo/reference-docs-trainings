@@ -21,13 +21,14 @@ info:
     On the left(sidebar) you can see a list of authorization types.
     The middle panel has details of API requests and additional information about that.
     The right panel contains the Try It console. Which have security section.
-    ![Security section](https://raw.githubusercontent.com/redocly-demo/reference-docs-trainings/main/try-it-auth/security-section.png)
 
     _Try it_ console itself is a tool, which provides the ability to make requests based on your API definition.
     Your API might have a sensitive data, so the specific routes could be under security policy.
 
-    Currently our application supports the following authorization flows:
-      ![Flows](https://raw.githubusercontent.com/redocly-demo/reference-docs-trainings/main/try-it-auth/flow.png)
+    ## Currently our application supports the following authorization flows:
+
+
+    ![Flows](https://raw.githubusercontent.com/redocly-demo/reference-docs-trainings/main/try-it-auth/flow.png)
   contact:
     name: Team Keyboard Warriors
     url: https://github.com/orgs/Redocly/teams/keyboard-warriors
@@ -183,6 +184,25 @@ paths:
       security:
         - AccessToken: ['read_user']
         - basicAuthBearer: [ ]
+  /repositories:
+    get:
+      summary: OAuth2 Client Credentials description
+      operationId: clientCredentials
+      tags:
+        - Try It
+      parameters:
+        - in: query
+          name: role
+          schema:
+            type: string
+          required: false
+          description: admin, contributor, member, owner
+      responses:
+        '200':
+          description: OK
+      security:
+        - clientCredentials: []
+
 components:
   securitySchemes:
     AccessToken:
@@ -242,6 +262,14 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
+
+    clientCredentials:
+      description: OAuth2 Client Credentials description
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://bitbucket.org/site/oauth2/access_token
+          scopes: {}
 
   schemas:
     User:
