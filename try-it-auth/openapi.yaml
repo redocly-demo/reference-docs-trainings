@@ -64,30 +64,6 @@ paths:
           description: OK
       security:
         - basicAuth: []
-  /users?active=true:
-    get:
-      tags:
-        - Try It
-      summary: Basic auth bearer token
-      description: |
-        ```js
-          {
-            bearer_token: "glpat-ZWGtLo_zzfp2xkZkpxyg",
-          }
-        ```
-      operationId: basicAuthBearer
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                maxItems: 10
-                items:
-                  $ref: '#/components/schemas/User'
-      security:
-        - basicAuthBearer: [ ]
   /users/{id}:
     get:
       tags:
@@ -170,11 +146,17 @@ paths:
     get:
       tags:
         - Try It
-      summary: Api key Sample
+      summary: http(bearer)/Api key
       description: |
         ```js
           {
             private_token: "glpat-R4w9zdziizKr9-iZmbSF",
+          }
+        ```
+        OR
+        ```js
+          {
+            bearer_token: "glpat-ZWGtLo_zzfp2xkZkpxyg",
           }
         ```
       operationId: apiKey
@@ -185,6 +167,10 @@ paths:
             type: number
           required: false
           description: The endpoint returns only the user by id.
+        - in: query
+          name: active
+          schema:
+            enum: [true]
       responses:
         '200':
           description: OK
@@ -197,8 +183,7 @@ paths:
                   $ref: '#/components/schemas/User'
       security:
         - AccessToken: ['read_user']
-
-
+        - basicAuthBearer: [ ]
 components:
   securitySchemes:
     AccessToken:
