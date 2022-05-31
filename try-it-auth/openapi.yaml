@@ -28,7 +28,18 @@ paths:
   /basic-auth/foo/bar:
     get:
       summary: Basic auth test
-      description: This endpoint simulates a basic-auth protected endpoint. Username "postman", Password "password"
+      description: |
+        This endpoint simulates a basic-auth protected endpoint. 
+        
+        Open Try It Console.
+        
+        Try to use Username `postman`, Password `password` and send request. It's not working because of incorrect credentials. 
+        
+        Try to use correct credentials Username `foo`, Password `bar`.
+        
+        You should get 200 OK.
+        
+        A server that receives request checks for the Authorization header that contains from encoded string `foo:baar` and compares it with correct.
       operationId: basicAuth
       responses:
         '200':
