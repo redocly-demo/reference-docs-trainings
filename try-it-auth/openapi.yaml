@@ -135,9 +135,6 @@ paths:
     get:
       summary: Api key Sample
       description: |
-        Use predefined `private_token` or setup your own [application](https://gitlab.com/-/profile/personal_access_tokens)
-        on Gitlab for [Create a personal access token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html)
-
         ```js
           {
             private_token: "glpat-R4w9zdziizKr9-iZmbSF",
