@@ -4,6 +4,8 @@ servers:
     description: Basic Auth
   - url: https://gitlab.com/api/v4
     description: GitLab Cloud
+  - url: https://bitbucket.org/!api/2.0
+    description: Bitbucket Cloud
 info:
   title: Try It Console Authorization flows training
   version: 0.0.1
@@ -69,8 +71,18 @@ paths:
         - Try It
       summary: Authorization Code
       description: |
+        This endpoint simulates a authorization code protected endpoint.
+
+        Open Try It Console.
+
+        Try to use:
+        client_id `redocly`
+        client_secret `private-redocly-secret`
+        and send request. It's not working because of incorrect credentials.
+
         Use predefined `Client ID` and `Client Secret` or setup your own [application](https://gitlab.com/-/profile/applications)
         on Gitlab for [Authorization code flow](https://docs.gitlab.com/ee/api/oauth2.html#authorization-code-flow)
+        or contact with our team to provide access.
 
         ```js
           {
@@ -78,6 +90,14 @@ paths:
             client_secret: "30891eee492f94883d77d2d7d8ddd8e512438672c74d95fb7d08340f8be487a1"
           }
         ```
+        Copy and paster `client_id` and `client_secret` and choose first scope after that send request.
+
+        In new tab automatically opens GitLab and requests access to your account.
+        After clicking `Authorize` tab will close and you have access to the endpoint.
+
+        Open the `Parameters` section and put some number to input `id`.
+
+        You should get 200 with some request data.
       operationId: authorizationCode
       parameters:
         - in: path
