@@ -17,7 +17,7 @@ info:
   contact:
     name: Team Keyboard Warriors
     url: https://github.com/orgs/Redocly/teams/keyboard-warriors
-  license: 
+  license:
     name: Redocly 1.0
     url: https://redocly.com/
   x-logo:
@@ -55,6 +55,43 @@ paths:
         - OAuth2AuthorizationCode: ['api']
         - OAuth2AuthorizationCodeWithPKCE: ['api']
         - OpenIdConnect: []
+  /users:
+    get:
+      summary: Api key Sample
+      description: Personal Access Token `glpat-R4w9zdziizKr9-iZmbSF`
+      operationId: apiKey
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: number
+          required: false
+          description: The endpoint returns only the user by id.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                maxItems: 10
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    username:
+                      type: string
+                    name:
+                      type: string
+                    state:
+                      type: string
+                    avatar_url:
+                      type: string
+                    web_url:
+                      type: string
+      security:
+        - AccessToken: ['read_user']
 
 components:
   securitySchemes:
@@ -63,6 +100,14 @@ components:
       type: apiKey
       name: PRIVATE-TOKEN
       in: header
+      flows:
+        implicit:
+          authorizationUrl: 'https://gitlab.com/oauth/authorize'
+          scopes:
+            'api': Grants complete read/write access to the API, including all groups and projects, the container registry, and the package registry.
+            'read_api': Grants read access to the API, including all groups and projects, the container registry, and the package registry.
+            'read_repository': Grants read-only access to repositories on private projects using Git-over-HTTP or the Repository Files API.
+            'read_registry': Grants read-only access to container registry images on private projects.
 
     OAuth2Implicit:
       description: OAuth2 Implicit description
