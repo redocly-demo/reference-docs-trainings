@@ -1,0 +1,11 @@
+# See https://redoc.ly/docs/cli/configuration/ for more information.
+apiDefinitions:
+  main: try-it-auth/openapi.yaml
+lint:
+  extends:
+    - recommended
+referenceDocs:
+  theme:
+    colors:
+      primary:
+        main: "#32329f"
