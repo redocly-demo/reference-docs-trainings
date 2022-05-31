@@ -5,6 +5,7 @@ lint:
   extends:
     - recommended
 referenceDocs:
+  pagination: item
   theme:
     colors:
       primary:
