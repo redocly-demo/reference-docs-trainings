@@ -108,10 +108,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-        '400':
-          description: Invalid User name
         '404':
           description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: 404 Not found
       security:
         - OAuth2AuthorizationCode: [ 'api' ]
 
