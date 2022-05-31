@@ -20,16 +20,14 @@ info:
     Our training page has three panels.
     On the left(sidebar) you can see a list of authorization types.
     The middle panel has details of API requests and additional information about that.
-    The right panel contains the Try It console.
+    The right panel contains the Try It console. Which have security section.
+    ![Security section](https://raw.githubusercontent.com/redocly-demo/reference-docs-trainings/main/try-it-auth/security-section.png)
 
     _Try it_ console itself is a tool, which provides the ability to make requests based on your API definition.
     Your API might have a sensitive data, so the specific routes could be under security policy.
 
     Currently our application supports the following authorization flows:
-      - test
-
-    # How it works
-    How we setup env
+      ![Flows](https://raw.githubusercontent.com/redocly-demo/reference-docs-trainings/main/try-it-auth/flow.png)
   contact:
     name: Team Keyboard Warriors
     url: https://github.com/orgs/Redocly/teams/keyboard-warriors
@@ -148,6 +146,7 @@ paths:
         - Try It
       summary: http(bearer)/Api key
       description: |
+        For get more details how it works check [Personal access tokens](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#personal-access-tokens).
         ```js
           {
             private_token: "glpat-R4w9zdziizKr9-iZmbSF",
