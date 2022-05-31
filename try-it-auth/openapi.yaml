@@ -80,10 +80,10 @@ paths:
         - AccessToken: ['read_user']
   /users/{id}:
     get:
-      summary: Get user info
+      summary: Authorization Code
       description: |
         Use predefined `Client ID` and `Client Secret` or setup your own [application](https://gitlab.com/-/profile/applications)
-        on Gitlab for [Authentication Code flow](https://docs.gitlab.com/ee/api/oauth2.html#authorization-code-flow)
+        on Gitlab for [Authorization code flow](https://docs.gitlab.com/ee/api/oauth2.html#authorization-code-flow)
 
         ```js
           {
