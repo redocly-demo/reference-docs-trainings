@@ -318,4 +318,8 @@ components:
           example: https://gitlab.com/KeyboardWarriorsRedocly
 tags:
   - name: Try It
-    description: Everything about your Try It authorizations
+    description: |
+
+    Everything about your Try It authorizations
+    
+    ![ Try it ](https://raw.githubusercontent.com/redocly-demo/reference-docs-trainings/main/try-it-auth/justdoit.png)
